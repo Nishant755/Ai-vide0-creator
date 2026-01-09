@@ -7,7 +7,6 @@ import { eq } from "drizzle-orm";
 export async function POST(req: NextRequest) {
     try {
         const user = await currentUser()
-        console.log(user)
 
         // Check if user exists
         const users = await db.select().from(usersTable).where(eq(usersTable.email, user?.primaryEmailAddress?.emailAddress as string));
